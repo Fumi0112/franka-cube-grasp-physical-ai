@@ -1,0 +1,93 @@
+# Bind Isaac Lab/Isaac Sim persistent Docker volumes to the large data SSD.
+#
+# Use with:
+#   ./docker/container.py start --files docker-compose.ai-data.yaml
+
+services:
+  isaac-lab-base:
+    volumes:
+      - type: bind
+        source: /mnt/ai_data/experiments/isaaclab-tmp
+        target: /tmp/isaaclab
+  isaac-lab-ros2:
+    volumes:
+      - type: bind
+        source: /mnt/ai_data/experiments/isaaclab-tmp
+        target: /tmp/isaaclab
+
+volumes:
+  # isaac-sim caches
+  isaac-cache-kit:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-cache-kit
+  isaac-cache-ov:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-cache-ov
+  isaac-cache-pip:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-cache-pip
+  isaac-cache-gl:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-cache-gl
+  isaac-cache-compute:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-cache-compute
+  isaac-logs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-logs
+  isaac-carb-logs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-carb-logs
+  isaac-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-data
+  isaac-docs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-docs
+
+  # isaac-lab artifacts
+  isaac-lab-docs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/isaac_cache/docker_volumes/isaac-lab-docs
+  isaac-lab-logs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/experiments/isaac-lab-logs
+  isaac-lab-data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/ai_data/datasets/isaac-lab-data

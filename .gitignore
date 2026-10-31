@@ -1,0 +1,35 @@
+# Local Git metadata and editor files
+.codex/
+.agents/
+.vscode/
+*.swp
+*.swo
+
+# Isaac Sim / Isaac Lab runtime outputs
+IsaacLab/logs/
+IsaacLab/data_storage/
+IsaacLab/_isaac_sim/
+IsaacLab/.cache/
+IsaacLab/.venv/
+IsaacLab/outputs/
+IsaacLab/__pycache__/
+IsaacLab/**/__pycache__/
+IsaacLab/**/*.pyc
+
+# Local datasets, checkpoints, videos, and caches
+datasets/
+checkpoints/
+videos/
+experiments/
+*.hdf5
+*.h5
+*.pt
+*.pth
+*.onnx
+*.mp4
+*.avi
+
+# Host-specific temporary files
+*.log
+tmp/
+
